@@ -56,7 +56,8 @@ NOTE: ensure that no other subsriber is already running
 cd sub_nodejs
 node sub_all.js
 ```
-CTRL+C to stop subscriber 
+CTRL+C to stop subscriber
+
 4) Java subscriber
 
 NOTE: ensure that no other subsriber is already running
@@ -64,7 +65,8 @@ NOTE: ensure that no other subsriber is already running
 cd sub_java
 mvn exec:java
 ```
-CTRL+C to stop subscriber 
+CTRL+C to stop subscriber
+
 5) Python subscriber
 
 NOTE: ensure that no other subsriber is already running
@@ -72,8 +74,9 @@ NOTE: ensure that no other subsriber is already running
 cd sub_python
 python sub_all.py
 ```
-CTRL+C to stop subscriber 
+CTRL+C to stop subscriber
 
 **DEMO video:**
 
 [![ZeroMQ pub sub DEMO video](http://img.youtube.com/vi/GEIFumhMFp4/0.jpg)](https://www.youtube.com/watch?v=GEIFumhMFp4 "ZeroMQ pub sub DEMO video")
+
