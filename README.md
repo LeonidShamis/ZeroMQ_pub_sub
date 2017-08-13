@@ -74,6 +74,6 @@ python sub_all.py
 ```
 CTRL+C to stop subscriber 
 
+**DEMO video:**
 
-
-
+[![ZeroMQ pub sub DEMO video](http://img.youtube.com/vi/GEIFumhMFp4/0.jpg)](https://www.youtube.com/watch?v=GEIFumhMFp4 "ZeroMQ pub sub DEMO video")
