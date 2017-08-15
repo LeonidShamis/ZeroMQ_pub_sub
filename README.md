@@ -1,8 +1,8 @@
 ## ZeroMQ_pub_sub
 
-### Testing pub-sub with ZeroMQ - Node.JS, Python and Java
+### Testing pub-sub with ZeroMQ - Node.JS, Python, Java, Vert.x Worker
 
-Demostrating publishing messages using ZeroMQ from (two) Node.js publishers and subscribing using ZeroMQ from subscribers implemented using Node.JS, Python and Java.
+Demostrating publishing messages using ZeroMQ from (two) Node.js publishers and subscribing using ZeroMQ from subscribers implemented using Node.JS, Python, Java and Vert.x Worker
 
 ----------
 
@@ -34,10 +34,15 @@ Java subscriber:
 cd ../sub_java
 mvn clean package
 ```
+Vert.x Worker subscriber:
+```
+cd ../sub_vertx
+mvn clean package
+```
 
 **Run publishers and subscribers (*one at a time*):**
 
-From the main project directory open 5 terminal/command windows, change to respective subdirectories and run each program as following:
+From the main project directory open separate terminal/command windows (preferably for each publisher and subscriber), change to respective subdirectories and run each program as following:
 
 1) Node.js publisher 1
 ```
@@ -67,7 +72,16 @@ mvn exec:java
 ```
 CTRL+C to stop subscriber
 
-5) Python subscriber
+5) Vert.x Worker subscriber
+
+NOTE: ensure that no other subsriber is already running
+```
+cd sub_vertx
+mvn exec:java
+```
+CTRL+C to stop subscriber
+
+6) Python subscriber
 
 NOTE: ensure that no other subsriber is already running
 ```
@@ -78,5 +92,5 @@ CTRL+C to stop subscriber
 
 **DEMO video:**
 
-[![ZeroMQ pub sub DEMO video](http://img.youtube.com/vi/GEIFumhMFp4/0.jpg)](https://www.youtube.com/watch?v=GEIFumhMFp4 "ZeroMQ pub sub DEMO video")
+[![ZeroMQ pub sub DEMO video](http://img.youtube.com/vi/G8nzrtj0KiI/0.jpg)](https://www.youtube.com/watch?v=G8nzrtj0KiI "ZeroMQ pub sub DEMO - Node.JS, Python, Java, Vert.x Worker")
 
