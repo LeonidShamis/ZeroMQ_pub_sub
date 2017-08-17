@@ -6,14 +6,18 @@ import org.zeromq.ZMQ;
 
 public class JeroMQSubscriberVerticle extends AbstractVerticle {
 
+    private ZMQ.Context context;
+    private ZMQ.Socket subscriber;
+    private String message;
+
   @Override
   public void start() {
 
     System.out.println("[Worker] Starting in " + Thread.currentThread().getName());
 
-    ZMQ.Context context = ZMQ.context(1);
+    context = ZMQ.context(1);
+    subscriber = context.socket(ZMQ.SUB);
 
-    ZMQ.Socket subscriber = context.socket(ZMQ.SUB);
     subscriber.connect("tcp://127.0.0.1:8001");
     subscriber.connect("tcp://127.0.0.1:8002");
 
@@ -23,15 +27,15 @@ public class JeroMQSubscriberVerticle extends AbstractVerticle {
     // no filtering
     subscriber.subscribe(ZMQ.SUBSCRIPTION_ALL); // no filtering
 
-    String message;
-
-    // server continuously sends messages until interrupted
-    while (!Thread.currentThread().isInterrupted()) {
-
+    vertx.setPeriodic(1, v -> {
         message = subscriber.recvStr(0).trim();
         String[] result = message.split(" ");
         System.out.println("exchange: " + result[0] + ", update: " + result[1]);
-    }
+    });
+  }
+
+  @Override
+  public void stop() throws Exception {
     subscriber.close();
     context.term();
   }

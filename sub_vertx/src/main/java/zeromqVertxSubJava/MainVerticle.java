@@ -7,7 +7,7 @@ import io.vertx.core.Future;
 public class MainVerticle extends AbstractVerticle {
 
   @Override
-  public void start(Future<Void> startFuture) {
+  public void start() {
 
     System.out.println("[Main] Running in " + Thread.currentThread().getName());
 
